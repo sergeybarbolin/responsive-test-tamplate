@@ -1,0 +1,490 @@
+*
+	outline: 0 !important
+	box-sizing: border-box
+	margin: 0
+	padding: 0
+li
+	list-style-type: none
+h1,h2,h3,h4,p
+	line-height: normal
+	margin: 0
+	padding: 0
+html 
+	min-width: 320px
+body
+	line-height: normal
+	color: #000
+	min-width: 320px
+	font-family: 'Futuris', Helvetica, Arial, sans-serif
+	background-color: #fff
+	@media only screen and (max-width: 992px)
+		height: auto
+		min-height: 100vh
+		display: flex
+		flex-direction: column
+
+main
+	margin: 0 auto
+	overflow: hidden
+	position: relative
+
+$pink : #ec107d
+$normalSpeed : .3s
+
+.scroll-off
+	overflow: hidden
+
+.section
+	width: 64.5vw
+	min-width: 900px
+	margin: 0 auto
+	background-color: #fff
+	padding: 0 25px
+	z-index: 1
+	position: relative
+	overflow: hidden
+	@media only screen and (max-width: 992px)
+		min-width: 100%
+		width: 100%
+	@media only screen and (max-width: 479px)
+		padding: 0 5px
+
+.header
+	text-align: center
+	@media only screen and (max-width: 479px)
+		display: flex
+		justify-content: space-between
+		align-items: center
+		height: 60px
+
+.logo
+	display: inline-block
+	margin: 0 auto
+	padding-top: 1.25vw
+	padding-bottom: 0.8vw
+	width: 12vw
+	height: auto
+	box-sizing: content-box
+	img
+		width: 100%
+		height: auto
+	@media only screen and (max-width: 1200px)
+		min-width: 155px
+	@media only screen and (max-width: 992px)
+		margin: 10px auto
+		padding-bottom: 0
+	@media only screen and (max-width: 479px)
+		margin: 0
+		padding-top: 0
+
+.main-nav
+	&__item
+		font-weight: 400
+		text-transform: uppercase
+		color: #010101
+		text-decoration: none !important
+		&_desktop
+			font-size: 1vw
+			line-height: 1vw
+			transition: color $normalSpeed
+			position: relative
+			&::after
+				content: ''
+				position: absolute
+				height: 1px
+				width: 0%
+				background: $pink
+				display: block
+				left: 0
+				right: 0
+				margin: auto
+				transition: width $normalSpeed
+			&:hover
+				color: $pink
+			&:hover::after
+				width: 100%
+			@media only screen and (max-width: 1200px)
+				font-size: 13px
+				line-height: 13px
+		&_mobile
+			font-size: 16px
+			line-height: 16px
+			display: block
+			margin-bottom: 20px
+			padding: 0 20px
+	&_desktop
+		justify-content: space-between
+		align-items: center
+		padding-bottom: 1vw
+		display: flex
+	&_mobile
+		display: block
+		padding-bottom: 0
+		width: 100vw
+		min-width: 320px
+		height: 100vh
+		position: fixed
+		left: 0
+		top: 0
+		background: #fff
+		z-index: 2
+		overflow: auto
+		transform: translateX(-100vw)
+		transition: transform $normalSpeed
+		padding: 0 0 0px 0
+		@media only screen and (max-width: 320px)
+			transform: translateX(-320px)
+			width: 320px
+	&__header
+		background: #d90f74
+		width: 100%
+		padding: 15px 20px
+		margin-bottom: 20px
+		display: flex
+		justify-content: space-between
+		& > span
+			color: #fff
+			text-transform: uppercase
+			font-weight: 900
+			font-size: 20px
+			line-height: 25px
+	&_active
+		transform: translateX(0)
+		transition: transform $normalSpeed
+
+
+
+	
+.btn-close
+	border: 0
+	background: transparent
+	width: 25px
+	height: 25px
+	position: relative
+	display: flex
+	justify-content: center
+	align-items: center
+	cursor: pointer
+	&__line
+		display: inline-block
+		width: 100%
+		height: 3px
+		background: #fff
+		position: absolute
+		border-radius: 2px
+	&__line:last-child
+		transform: rotate(45deg)
+	&__line:first-child
+		transform: rotate(-45deg)
+
+.btn-search 
+	background: transparent
+	border: none
+	cursor: pointer
+	svg
+		stroke: $pink
+		fill: transparent
+		stroke-width: 2px
+		width: 1.8vw
+		height: 1.8vw
+		@media only screen and (max-width: 1200px)
+			width: 20px
+			height: 20px
+		@media only screen and (max-width: 479px)
+			width: 25px
+			height: 25px
+			stroke-width: 3px
+
+.banner-bg
+	position: fixed
+	left: 0
+	top: 0
+	width: 100%
+	height: 100%
+	z-index: 0
+	img
+		width: 100%
+		height: 100%
+		object-fit: cover
+
+.game-wrapper
+	width: calc(100% - 90px)
+	height: auto
+	max-width: 100%
+	border: 1px solid #cecece
+	border-radius: 5px
+	margin: 0 auto
+	padding-bottom: 1.2vw
+	text-align: center
+	overflow: hidden
+	@media only screen and (max-width: 992px)
+		width: calc(100% - 50px)
+		padding-bottom: 15px
+	@media only screen and (max-width: 768px)
+		width: 100%
+		display: flex
+		flex-direction: column
+		min-height: calc(100vh - 100px)
+	@media only screen and (max-width: 479px)
+		min-height: calc(100vh - 70px)
+		
+.footer
+	padding: 35px 25px
+	@media only screen and (max-width: 992px)
+		flex: 1 auto
+		padding: 10px 50px
+	@media only screen and (max-width: 768px)
+		padding: 10px 20px
+	@media only screen and (max-width: 479px)
+		padding: 0
+
+.about-text
+	text-align: center
+	color: #000000
+	font-size: 14px
+	font-weight: 400
+	line-height: 22px
+	@media only screen and (max-width: 768px)
+		br 
+			display: none
+	@media only screen and (max-width: 768px)
+		font-size: 13px
+		line-height: 16px
+
+.game-title
+	color: $pink
+	font-size: 2.81vw
+	font-weight: 700
+	margin: 2.9vw auto 2.2vw
+	@media only screen and (max-width: 1200px)
+		font-size: 35px
+		margin: 25px auto 20px
+	@media only screen and (max-width: 768px)
+		font-size: 32px
+		margin: 25px auto 0px
+		padding: 0 20px
+	@media only screen and (max-width: 479px)
+		font-size: 24px
+		margin: 8vh auto 8vh
+		padding: 0 10px
+.toster
+	position: relative
+	width: 40vw
+	height: 27.4vw
+	margin: auto
+	max-width: 100%
+	padding-top: 7.6vw
+	z-index: 1
+	&__body
+		position: absolute
+		left: 0
+		right: 0
+		bottom: 0
+		top: 0
+		margin: auto
+		z-index: -1
+		width: 100%
+		height: 100%
+	&__regulator
+		width: 16%
+		height: 22%
+		position: absolute
+		bottom: 24%
+		right: 14%
+	&__circle
+		width: 10vw
+		height: 10vw
+		position: absolute
+		bottom: -10vw
+		right: -10vw
+		border-radius: 50%
+		background-color: #fff
+	&__text
+		font-weight: 400
+		line-height: 1.85vw
+		margin-bottom: 2vw
+		font-size: 1.85vw
+		@media only screen and (max-width: 1200px)
+			line-height: 20px
+			margin-bottom: 20px
+			font-size: 19px
+	@media only screen and (max-width: 1200px)
+		padding-top: 85px
+		min-width: 480px
+		min-height: 330px
+	@media only screen and (max-width: 768px)
+		min-width: 395px
+	@media only screen and (max-width: 479px)
+		min-width: 290px
+		padding-top: 65px
+		min-height: 210px
+
+
+.mob-h
+	@media only screen and (max-width: 479px)
+		display: none
+
+.desktop-h
+	@media only screen and (min-width: 480px)
+		display: none
+
+.button
+	font-size: 1.85vw
+	line-height: 1.85vw
+	font-weight: 700
+	padding: 2% 5% 2.5%
+	cursor: pointer
+	border-radius: 5px
+	background-color: $pink
+	border: none
+	color: #fff
+	position: relative
+	transition: background-color $normalSpeed
+	&:hover
+		background-color: #d90f74
+	@media only screen and (max-width: 1200px)
+		font-size: 18px
+		line-height: 18px
+		padding: 9px 18px 11px
+
+.confetti
+	width: 100%
+	height: 100%
+	position: absolute
+	left: 0
+	top: 0
+	&__item
+		width: 0.7vw
+		height: 0.7vw
+		min-width: 10px
+		min-height: 10px
+		border-radius: 50%
+		position: absolute
+		left: 0
+		right: 0
+		top: 100px
+		margin: 0 auto
+		z-index: -2
+
+.load-content
+	padding: 1.4vw 11vw
+	display: none
+	opacity: 0
+	@media only screen and (max-width: 1200px)
+		padding: 10px 125px
+	@media only screen and (max-width: 992px)
+		padding: 10px 80px
+	@media only screen and (max-width: 768px)
+		padding: 10px 30px
+		flex: 1 auto
+	@media only screen and (max-width: 479px)
+		padding: 10px 13px
+	&__img
+		width: 21vw
+		min-width: 250px
+		height: auto
+	&__title
+		color: $pink
+		font-weight: 700
+		font-size: 1.85vw
+		margin: 0.7vw auto 0.3vw
+		@media only screen and (max-width: 1200px)
+			font-size: 20px
+			margin: 10px auto 5px
+		@media only screen and (max-width: 768px)
+			font-size: 22px
+	&__description
+		color: #010101
+		font-weight: 400
+		font-size: 0.94vw
+		line-height: 1.35vw
+		margin-bottom: 1.25vw
+		@media only screen and (max-width: 1200px)
+			font-size: 15px
+			line-height: 19px
+			margin-bottom: 15px
+		@media only screen and (max-width: 479px)
+			font-size: 14px
+			line-height: 18px
+			margin-bottom: 10px
+		br
+			@media only screen and (max-width: 768px)
+				display: none
+.sharing
+	// position: absolute
+	bottom: 25px
+	left: 0
+	right: 0
+	z-index: 0
+	&__title
+		margin: 25px auto 20px
+		font-size: 18px
+		line-height: 32px
+		margin: 1vw auto
+		font-size: 1vw
+		line-height: 1.7vw
+		@media only screen and (max-width: 1200px)
+			font-size: 14px
+			line-height: 20px
+	&__items
+		width: 17.2vw
+		min-width: 300px
+		display: -webkit-flex
+		display: -moz-flex
+		display: -ms-flex
+		display: -o-flex
+		display: flex
+		justify-content: space-between
+		margin: auto
+	&__item
+		display: flex
+		justify-content: center
+		align-items: center
+		border-radius: 15px
+		transition: background-color $normalSpeed
+		width: auto
+		-webkit-border-radius: 15px
+		padding: 10px 15px
+		text-decoration: none !important
+		color: #d90f74
+		font-size: 17px
+		span
+			margin-left: 5px
+		&:hover
+			background-color: #d90f74
+			color: #fff
+			svg
+				fill: #fff
+		svg
+			width: 1.35vw
+			height: 1vw
+			fill: #d90f74
+			@media only screen and (max-width: 1200px)
+				width: 17px
+				height: 17px
+	@media only screen and (max-width: 479px)
+		bottom: 15px
+
+.burger
+	display: none
+	@media only screen and (max-width: 479px)
+		width: 25px
+		height: 25px
+		border: none
+		background: transparent
+		display: block
+		position: relative
+		&__line
+			width: 100%
+			height: 3px
+			display: block
+			background: #d90f74
+			border-radius: 2px
+			position: absolute
+			top: 0
+			bottom: 0
+			margin: auto
+			&:first-child
+				bottom: auto
+			&:last-child
+				top: auto 
